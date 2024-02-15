@@ -1,6 +1,12 @@
 @import "reset";
 @import "variables/global";
+@import "variables/colors";
 
 body,.app {
 	min-height: 100vh;
+}
+
+body {
+	color: var(--main-color);
+	background-color: var(--main-backgrond-color);
 }

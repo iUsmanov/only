@@ -1,0 +1,53 @@
+.periodSlider {
+	position: relative;
+}
+
+.years {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.firstYear,
+.secondYear {
+	font: var(--font-period-year);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.firstYear {
+	color: var(--first-year-color);
+	margin-right: 150px;
+}
+
+.secondYear {
+	color: var(--second-year-color);
+}
+
+.navigation {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+}
+
+.count {
+	margin-bottom: 14px;
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+}
+
+.leftButton {
+	margin-right: 20px;
+}
+
+// .rightButton {
+
+// }
+
+// .one{
+
+// }

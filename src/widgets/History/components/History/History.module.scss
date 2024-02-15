@@ -1,0 +1,24 @@
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1440px 1fr;
+	grid-template-rows: 1fr;
+	height: 100vh;
+}
+
+.history {
+	grid-column: 2;
+	display: grid;
+	grid-template-rows: 1fr 2fr 1fr;
+	grid-template-columns: 1fr;
+	padding-left: 78px;
+}
+
+.header {
+	align-self: center;
+}
+
+.peroidSlider {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

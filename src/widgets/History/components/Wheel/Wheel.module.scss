@@ -1,0 +1,42 @@
+.wheel {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	border: 1px solid var(--circle-border-color);
+	width: 530px;
+	height: 530px;
+
+	// animation: spin 2s linear 0s infinite normal forwards;
+}
+
+.diameter{
+	position: absolute;
+	left: 50%;
+	top: -10px;
+	width: 0;
+	height: 103.8%;
+}
+
+.one {
+	transform: rotate(0deg);
+}
+
+.two {
+	transform: rotate(120deg);
+}
+
+.three {
+	transform: rotate(240deg);
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

@@ -1,0 +1,42 @@
+.root {
+	position: relative;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.dot {
+	width: 6px;
+	height: 6px;
+	background: black;
+	border-radius: 50%;
+}
+
+.button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	visibility: hidden;
+	pointer-events: none;
+	opacity: 0;
+}
+
+
+.root:hover {
+	&:hover {
+		.dot {
+			visibility: hidden;
+			pointer-events: none;
+			opacity: 0;
+		}
+		
+		.button {
+			visibility: visible;
+			pointer-events: all;
+			opacity: 1;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+:root {
+	--main-color: #42567A;
+	--main-backgrond-color: #F4F5F9
+	--slide-header-color: #3877EE;
+	--first-year-color: #5D5FEF;
+	--second-year-color: #EF5DA8;
+	--circle-border-color: rgb(48 62 88 / 50%);
+	--header-gradient: linear-gradient(180deg, #3877EE -5%, #EF5DA8 85%);
+	--period-button-border: rgb(66 86 122 / 50%);
+	--slider-active-button-shadow: 0px 0px 15px 0px #3877EE1A;
+
+	// --slider-active-arrow: (var(--slide-header-color) / 50%);
+
+	--main-font: 'PT Sans';
+	--second-font: 'Bebas Neue';
+
+	// FONTS
+	--font-size-xl: 56px;
+	--font-line-xl: 67.2px;
+	--font-xl: var(--font-size-xl) / var(--font-line-xl) var(--main-font);
+
+	// Шрифт годов периода
+	--font-size-period-year: 200px;
+	--font-line-period-year: 160px;
+	--font-period-year: var(--font-size-period-year) / var(--font-line-period-year) var(--main-font);
+}
