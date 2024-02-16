@@ -21,7 +21,7 @@ interface CircleButton extends ButtonBaseProps {
 type ButtonProps = CircleButton;
 
 export const Button = memo((props: ButtonProps) => {
-	const { className, children, variant = 'circle', onClick, size, shadow } = props;
+	const { className, children, variant = 'circle', onClick, size, shadow, ...otherProps } = props;
 
 	const mods: Mods = useMemo(
 		() => ({
@@ -33,6 +33,7 @@ export const Button = memo((props: ButtonProps) => {
 
 	return (
 		<button
+			{...otherProps}
 			type='button'
 			onClick={onClick}
 			className={classNames(cls.button, mods, [className, cls[variant]])}

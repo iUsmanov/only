@@ -6,7 +6,7 @@ import { HistoryActions } from '../../model/slices/HistorySlice';
 import { useSelector } from 'react-redux';
 import { getSelectedPoint } from '../../model/selectors/getSelectedPoint';
 import { getWheelDegs } from '../../model/selectors/getWheelDegs';
-import { degrees } from '../../consts/history';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface WheelPointProps {
 	className?: string;
@@ -21,16 +21,16 @@ export const WheelPoint = memo((props: WheelPointProps) => {
 	const wheelDegs = useSelector(getWheelDegs);
 
 	const onClick = () => {
-		dispatch(HistoryActions.setWheelDegs(wheelDegs + degrees[selectedPoint][number]));
 		dispatch(HistoryActions.selectPoint(number));
 	};
 
 	return (
-		<div className={cls.root}>
+		<div className={classNames(cls.root, { [cls._active]: selectedPoint === number }, [])}>
 			<div className={cls.dot}></div>
 			<Button onClick={onClick} variant='circle' size='56' className={cls.button}>
 				{number}
 			</Button>
+			{selectedPoint === number && <div className={cls.title}>Movie</div>}
 		</div>
 	);
 });

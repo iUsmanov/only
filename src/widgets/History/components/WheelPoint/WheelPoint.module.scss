@@ -31,7 +31,7 @@
 }
 
 
-.root:hover {
+.root:hover, .root._active {
 	background: var(--main-backgrond-color);
 	
 	.dot {
@@ -44,7 +44,12 @@
 		visibility: visible;
 		pointer-events: all;
 		opacity: 1;
-		background: white;
+		background: var(--main-backgrond-color);
 		transform: translate(-50%, -50%) scale(1);
 	}
+}
+
+.title {
+	position: absolute;
+	font-weight: 700;
 }

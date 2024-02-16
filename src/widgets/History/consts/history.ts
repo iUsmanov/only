@@ -1,4 +1,4 @@
-export const degrees: Record<number, Record<number, number>> = {
+export const degreesMap: Record<number, Record<number, number>> = {
 	1: {
 		1: 0,
 		2: -50,

@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { HistorySchema } from '../types/HistorySchema';
+import { degreesMap } from '../../consts/history';
 
 export const initialState: HistorySchema = {
 	selectedPoint: 1,
@@ -11,10 +12,9 @@ export const HistorySlice = createSlice({
 	initialState,
 	reducers: {
 		selectPoint: (state, action: PayloadAction<number>) => {
+			const finalDegs = state.wheelDegs + degreesMap[state.selectedPoint][action.payload];
 			state.selectedPoint = action.payload;
-		},
-		setWheelDegs: (state, action: PayloadAction<number>) => {
-			state.wheelDegs = action.payload;
+			state.wheelDegs = finalDegs;
 		},
 	},
 });

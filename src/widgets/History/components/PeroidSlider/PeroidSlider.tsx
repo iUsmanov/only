@@ -5,10 +5,24 @@ import { Button } from '@/shared/ui/Button/Button';
 import { Wheel } from '../Wheel/Wheel';
 import { useSelector } from 'react-redux';
 import { getYears } from '../../model/selectors/getYears';
+import { getSelectedPoint } from '../../model/selectors/getSelectedPoint';
+import { HistoryActions } from '../../model/slices/HistorySlice';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export const PeroidSlider = memo((props: { className?: string }) => {
 	const { className } = props;
+	const dispatch = useAppDispatch();
 	const years = useSelector(getYears);
+	const selectedPoint = useSelector(getSelectedPoint);
+
+	const onClickNext = () => {
+		dispatch(HistoryActions.selectPoint(selectedPoint + 1));
+	};
+
+	const onClickLast = () => {
+		dispatch(HistoryActions.selectPoint(selectedPoint - 1));
+	};
+
 	if (!years) return null;
 	return (
 		<div className={classNames(cls.periodSlider, {}, [className])}>
@@ -19,13 +33,25 @@ export const PeroidSlider = memo((props: { className?: string }) => {
 			</div>
 			<div className={cls.navigation}>
 				<div className={cls.count}>
-					{'06'}/{'06'}
+					0{selectedPoint}/{'06'}
 				</div>
 				<div className={cls.buttons}>
-					<Button className={cls.leftButton} onClick={() => {}} variant='circle' size='50'>
+					<Button
+						className={cls.leftButton}
+						onClick={onClickLast}
+						variant='circle'
+						size='50'
+						disabled={selectedPoint === 1}
+					>
 						d
 					</Button>
-					<Button className={cls.rightButton} onClick={() => {}} variant='circle' size='50'>
+					<Button
+						className={cls.rightButton}
+						onClick={onClickNext}
+						variant='circle'
+						size='50'
+						disabled={selectedPoint === 6}
+					>
 						b
 					</Button>
 				</div>
