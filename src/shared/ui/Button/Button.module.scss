@@ -5,6 +5,7 @@
 	&:disabled {
 		opacity: 0.5;
 		cursor: default;
+
 	}
 }
 
@@ -29,6 +30,10 @@
 
 	&:hover {
 		background: white;
+	}
+
+	&:disabled {
+		background: var(--main-backgrond-color);
 	}
 }
 
