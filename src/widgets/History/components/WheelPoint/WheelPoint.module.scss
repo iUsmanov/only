@@ -53,4 +53,74 @@
 .title {
 	position: absolute;
 	font-weight: 700;
+	right: -80px;
+}
+
+.selected-point-1 {
+	transform: rotate(-40deg);
+
+	&.this-point-2 {
+		transform: rotate(-90deg);
+	}
+
+	&.this-point-3 {
+		transform: rotate(-140deg);
+	}
+
+	&.this-point-4 {
+		transform: rotate(-40deg);
+	}
+
+	&.this-point-5 {
+		transform: rotate(-90deg);
+	}
+
+	&.this-point-6 {
+		transform: rotate(-140deg);
+	}
+}
+
+.selected-point-2 {
+	.this-point-1 {}
+	.this-point-2 {}
+	.this-point-3 {}
+	.this-point-4 {}
+	.this-point-5 {}
+	.this-point-6 {}
+}
+
+.selected-point-3 {
+	.this-point-1 {}
+	.this-point-2 {}
+	.this-point-3 {}
+	.this-point-4 {}
+	.this-point-5 {}
+	.this-point-6 {}
+}
+
+.selected-point-4 {
+	.this-point-1 {}
+	.this-point-2 {}
+	.this-point-3 {}
+	.this-point-4 {}
+	.this-point-5 {}
+	.this-point-6 {}
+}
+
+.selected-point-5 {
+	.this-point-1 {}
+	.this-point-2 {}
+	.this-point-3 {}
+	.this-point-4 {}
+	.this-point-5 {}
+	.this-point-6 {}
+}
+
+.selected-point-6 {
+	.this-point-1 {}
+	.this-point-2 {}
+	.this-point-3 {}
+	.this-point-4 {}
+	.this-point-5 {}
+	.this-point-6 {}
 }

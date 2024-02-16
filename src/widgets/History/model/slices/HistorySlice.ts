@@ -6,6 +6,7 @@ export const initialState: HistorySchema = {
 	selectedPoint: 1,
 	wheelDegs: 0,
 	yearsEvents: yearsEvents,
+	isEventsSliderHidden: false,
 };
 
 export const HistorySlice = createSlice({
@@ -16,6 +17,9 @@ export const HistorySlice = createSlice({
 			const finalDegs = state.wheelDegs + degreesMap[state.selectedPoint][action.payload];
 			state.selectedPoint = action.payload;
 			state.wheelDegs = finalDegs;
+		},
+		setIsEventsSliderHidden: (state, action: PayloadAction<boolean>) => {
+			state.isEventsSliderHidden = action.payload;
 		},
 	},
 });

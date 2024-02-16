@@ -4,4 +4,5 @@ export interface HistorySchema {
 	selectedPoint: number;
 	wheelDegs: number;
 	yearsEvents: Record<string, YearEvents[]>;
+	isEventsSliderHidden: boolean;
 }

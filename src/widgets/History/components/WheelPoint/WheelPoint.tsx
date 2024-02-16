@@ -22,10 +22,24 @@ export const WheelPoint = memo((props: WheelPointProps) => {
 
 	const onClick = () => {
 		dispatch(HistoryActions.selectPoint(number));
+
+		const toggleIsHidden = () => {
+			dispatch(HistoryActions.setIsEventsSliderHidden(true));
+			setTimeout(() => {
+				dispatch(HistoryActions.setIsEventsSliderHidden(false));
+			}, 700);
+		};
+
+		toggleIsHidden();
 	};
 
 	return (
-		<div className={classNames(cls.root, { [cls['_active']]: selectedPoint === number }, [])}>
+		<div
+			className={classNames(cls.root, { [cls['_active']]: selectedPoint === number }, [
+				cls[`selected-point-${selectedPoint}`],
+				cls[`this-point-${number}`],
+			])}
+		>
 			<div className={cls.dot}></div>
 			<Button onClick={onClick} variant='circle' size='56' className={cls.button}>
 				{number}

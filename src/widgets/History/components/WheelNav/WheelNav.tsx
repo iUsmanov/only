@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { getSelectedPoint } from '../../model/selectors/getSelectedPoint';
 import { HistoryActions } from '../../model/slices/HistorySlice';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Arrow } from '@/shared/ui/Header/Arrow';
+import { Arrow } from '@/shared/ui/Arrow/Arrow';
 
 interface WheelNavProps {
 	className?: string;
@@ -18,12 +18,21 @@ export const WheelNav = memo((props: WheelNavProps) => {
 
 	const selectedPoint = useSelector(getSelectedPoint);
 
+	const toggleIsHidden = () => {
+		dispatch(HistoryActions.setIsEventsSliderHidden(true));
+		setTimeout(() => {
+			dispatch(HistoryActions.setIsEventsSliderHidden(false));
+		}, 700);
+	};
+
 	const onClickNext = () => {
 		dispatch(HistoryActions.selectPoint(selectedPoint + 1));
+		toggleIsHidden();
 	};
 
 	const onClickLast = () => {
 		dispatch(HistoryActions.selectPoint(selectedPoint - 1));
+		toggleIsHidden();
 	};
 
 	return (

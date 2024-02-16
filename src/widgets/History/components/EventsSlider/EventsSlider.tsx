@@ -9,10 +9,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { EventSlide } from '../EventSlide/EventSlide';
 import { Button } from '@/shared/ui/Button/Button';
-import { Arrow } from '@/shared/ui/Header/Arrow';
+import { Arrow } from '@/shared/ui/Arrow/Arrow';
 import { useSelector } from 'react-redux';
 import { getYearsEvents } from '../../model/selectors/getYearsEvents';
 import { getYears } from '../../model/selectors/getYears';
+import { getIsEventsSliderHidden } from '../../model/selectors/getIsEventsSliderHidden';
 
 interface EventsSliderProps {
 	className?: string;
@@ -21,11 +22,21 @@ export const EventsSlider = memo((props: EventsSliderProps) => {
 	const { className } = props;
 	const yearsEvents = useSelector(getYearsEvents);
 	const years = useSelector(getYears);
+	// const [isHidden, setIsHidden] = useState(false);
+	const isEventsSliderHidden = useSelector(getIsEventsSliderHidden);
+
+	// const toggleIsHidden = () => {
+	// 	setIsHidden((prev) => !prev);
+
+	// 	setTimeout(() => {
+	// 		setIsHidden((prev) => !prev);
+	// 	}, 700);
+	// };
 
 	if (!years) return null;
 
 	return (
-		<div className={cls.eventsSlider}>
+		<div className={classNames(cls.eventsSlider, { [cls.isHidden]: isEventsSliderHidden }, [])}>
 			<Button data-swiper-prev size='40' shadow variant='circle' onClick={() => {}}>
 				<Arrow course='left' size='s' />
 			</Button>
