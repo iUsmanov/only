@@ -25,7 +25,7 @@ export const WheelPoint = memo((props: WheelPointProps) => {
 	};
 
 	return (
-		<div className={classNames(cls.root, { [cls._active]: selectedPoint === number }, [])}>
+		<div className={classNames(cls.root, { [cls['_active']]: selectedPoint === number }, [])}>
 			<div className={cls.dot}></div>
 			<Button onClick={onClick} variant='circle' size='56' className={cls.button}>
 				{number}

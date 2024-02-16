@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import cls from './History.module.scss';
+import { EventsSlider } from '../EventsSlider/EventsSlider';
 import { Header } from '../Header/Header';
 import { PeroidSlider } from '../PeroidSlider/PeroidSlider';
 
@@ -9,6 +10,7 @@ export const History = memo(() => {
 			<section className={cls.history}>
 				<Header className={cls.header} />
 				<PeroidSlider className={cls.peroidSlider} />
+				<EventsSlider />
 			</section>
 		</main>
 	);

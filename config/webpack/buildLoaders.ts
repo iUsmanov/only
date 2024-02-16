@@ -3,6 +3,7 @@ import { BuildOptions } from './types/config';
 import { buildScssLoader } from './loaders/buildScssLoader';
 import { buildSvgrLoader } from './loaders/buildSvgrLoader';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	// Если не юзаем typescriptLoader, нужен babelLoader
@@ -26,5 +27,22 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 
 	const scssLoader = buildScssLoader(options.isDev);
 
-	return [assetsLoader, svgrLoader, codeBabelLoader, tsxCodeBabelLoader, scssLoader];
+	return [
+		assetsLoader,
+		svgrLoader,
+		codeBabelLoader,
+		tsxCodeBabelLoader,
+		scssLoader,
+		buildScssLoaderA(options.isDev),
+	];
+}
+
+export function buildScssLoaderA(isDev: boolean): webpack.RuleSetRule {
+	const scssLoader = {
+		test: /\.css$/i,
+		include: /node_modules\\swiper/,
+		use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+	};
+
+	return scssLoader;
 }

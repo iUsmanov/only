@@ -28,4 +28,9 @@
 	--font-size-wheel-point: 20px;
 	--font-line-wheel-point: 30px;
 	--font-wheel-point: var(--font-size-wheel-point) / var(--font-line-wheel-point) var(--main-font);
+
+	// Шрифт заголовка события
+	--font-size-slide-header: 25px;
+	--font-line-slide-header: 30px;
+	--font-slide-header: var(--font-size-slide-header) / var(--font-line-slide-header) var(--second-font);
 }

@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "webpack serve --env port=3000",
 		"build:prod": "webpack --env mode=production",
-		"build:dev": "webpack --env mode=development",		
+		"build:dev": "webpack --env mode=development",
 		"build:prod:analyze": "npm run build:prod --env analyze=true",
 		"build:dev:analyze": "npm run build:dev --env analyze=true",
 		"lint:ts": "eslint \"**/*.{ts,tsx}\"",
@@ -73,6 +73,7 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-redux": "^8.0.5",
-		"react-router-dom": "^6.11.1"
+		"react-router-dom": "^6.11.1",
+		"swiper": "^11.0.6"
 	}
 }
