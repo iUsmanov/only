@@ -5,6 +5,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font: var(--font-wheel-point);
+	transition: all .3s;
 }
 
 .dot {
@@ -12,31 +14,37 @@
 	height: 6px;
 	background: black;
 	border-radius: 50%;
+	transition: all .3s;
 }
 
 .button {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%) scale(0.5);
 	visibility: hidden;
 	pointer-events: none;
 	opacity: 0;
+	background: black;
+	border: 1px solid var(--circle-border-color);
+	transition: all .3s ease-in;
 }
 
 
 .root:hover {
-	&:hover {
-		.dot {
-			visibility: hidden;
-			pointer-events: none;
-			opacity: 0;
-		}
+	background: var(--main-backgrond-color);
+	
+	.dot {
+		visibility: hidden;
+		pointer-events: none;
+		opacity: 0;
+	}
 		
-		.button {
-			visibility: visible;
-			pointer-events: all;
-			opacity: 1;
-		}
+	.button {
+		visibility: visible;
+		pointer-events: all;
+		opacity: 1;
+		background: white;
+		transform: translate(-50%, -50%) scale(1);
 	}
 }

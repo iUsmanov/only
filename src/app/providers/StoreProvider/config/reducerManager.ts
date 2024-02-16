@@ -25,6 +25,7 @@ export function createReducerManager(initialReducers: ReducersObject): ReducerMa
 			if (keysToRemove.length > 0) {
 				state = { ...state };
 				for (const key of keysToRemove) {
+					// @ts-ignore
 					delete state[key];
 				}
 				keysToRemove = [];
@@ -38,7 +39,6 @@ export function createReducerManager(initialReducers: ReducersObject): ReducerMa
 				return;
 			}
 
-			// @ts-ignore
 			reducers[key] = reducer;
 			combinedReducer = combineReducers(reducers);
 		},
@@ -48,6 +48,7 @@ export function createReducerManager(initialReducers: ReducersObject): ReducerMa
 				return;
 			}
 
+			// @ts-ignore
 			delete reducers[key];
 			keysToRemove.push(key);
 			combinedReducer = combineReducers(reducers);

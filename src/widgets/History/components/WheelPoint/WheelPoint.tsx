@@ -1,17 +1,29 @@
-import { ButtonHTMLAttributes, memo, useMemo } from 'react';
-import { Mods } from '@/shared/lib/classNames/classNames';
+import { MutableRefObject, memo } from 'react';
 import cls from './WheelPoint.module.scss';
 import { Button } from '@/shared/ui/Button/Button';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { HistoryActions } from '../../model/slices/HistorySlice';
+import { useSelector } from 'react-redux';
+import { getSelectedPoint } from '../../model/selectors/getSelectedPoint';
+import { getWheelDegs } from '../../model/selectors/getWheelDegs';
+import { degrees } from '../../consts/history';
 
-interface WheelPointProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface WheelPointProps {
 	className?: string;
 	number: number;
-	onClick: VoidFunction;
+	wheelRef?: MutableRefObject<any>;
 }
 
 export const WheelPoint = memo((props: WheelPointProps) => {
-	const { number, onClick } = props;
-	const mods: Mods = useMemo(() => ({}), []);
+	const { number, wheelRef } = props;
+	const dispatch = useAppDispatch();
+	const selectedPoint = useSelector(getSelectedPoint);
+	const wheelDegs = useSelector(getWheelDegs);
+
+	const onClick = () => {
+		dispatch(HistoryActions.setWheelDegs(wheelDegs + degrees[selectedPoint][number]));
+		dispatch(HistoryActions.selectPoint(number));
+	};
 
 	return (
 		<div className={cls.root}>

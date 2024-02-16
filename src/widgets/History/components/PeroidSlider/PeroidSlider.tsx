@@ -3,14 +3,18 @@ import cls from './PeroidSlider.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button/Button';
 import { Wheel } from '../Wheel/Wheel';
+import { useSelector } from 'react-redux';
+import { getYears } from '../../model/selectors/getYears';
 
 export const PeroidSlider = memo((props: { className?: string }) => {
 	const { className } = props;
+	const years = useSelector(getYears);
+	if (!years) return null;
 	return (
 		<div className={classNames(cls.periodSlider, {}, [className])}>
 			<div className={cls.years}>
-				<div className={cls.firstYear}>2015</div>
-				<div className={cls.secondYear}>2022</div>
+				<div className={cls.firstYear}>{years[0]}</div>
+				<div className={cls.secondYear}>{years[1]}</div>
 				<Wheel />
 			</div>
 			<div className={cls.navigation}>

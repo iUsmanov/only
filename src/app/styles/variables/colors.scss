@@ -23,4 +23,9 @@
 	--font-size-period-year: 200px;
 	--font-line-period-year: 160px;
 	--font-period-year: var(--font-size-period-year) / var(--font-line-period-year) var(--main-font);
+
+	// Шрифт периода
+	--font-size-wheel-point: 20px;
+	--font-line-wheel-point: 30px;
+	--font-wheel-point: var(--font-size-wheel-point) / var(--font-line-wheel-point) var(--main-font);
 }

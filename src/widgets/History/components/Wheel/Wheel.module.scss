@@ -7,6 +7,7 @@
 	border: 1px solid var(--circle-border-color);
 	width: 530px;
 	height: 530px;
+	transition: all .3s;
 
 	// animation: spin 2s linear 0s infinite normal forwards;
 }
@@ -20,15 +21,15 @@
 }
 
 .one {
-	transform: rotate(0deg);
+	transform: rotate(40deg);
 }
 
 .two {
-	transform: rotate(120deg);
+	transform: rotate(90deg);
 }
 
 .three {
-	transform: rotate(240deg);
+	transform: rotate(140deg);
 }
 
 @keyframes spin {
