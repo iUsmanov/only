@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { getSelectedPoint } from '../../model/selectors/getSelectedPoint';
 import { HistoryActions } from '../../model/slices/HistorySlice';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Arrow } from '@/shared/ui/Header/Arrow';
 
 interface WheelNavProps {
 	className?: string;
@@ -38,7 +39,7 @@ export const WheelNav = memo((props: WheelNavProps) => {
 					size='50'
 					disabled={selectedPoint === 1}
 				>
-					d
+					<Arrow course='left' size='l' />
 				</Button>
 				<Button
 					className={cls.rightButton}
@@ -47,7 +48,7 @@ export const WheelNav = memo((props: WheelNavProps) => {
 					size='50'
 					disabled={selectedPoint === 6}
 				>
-					b
+					<Arrow course='right' size='l' />
 				</Button>
 			</div>
 		</div>

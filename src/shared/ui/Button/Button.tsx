@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode, memo, useMemo } from 'react';
+import { ButtonHTMLAttributes, LegacyRef, ReactNode, forwardRef, memo, useMemo } from 'react';
 import cls from './Button.module.scss';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
@@ -20,7 +20,7 @@ interface CircleButton extends ButtonBaseProps {
 
 type ButtonProps = CircleButton;
 
-export const Button = memo((props: ButtonProps) => {
+const Button = forwardRef((props: ButtonProps, ref: LegacyRef<HTMLButtonElement> | undefined) => {
 	const { className, children, variant = 'circle', onClick, size, shadow, ...otherProps } = props;
 
 	const mods: Mods = useMemo(
@@ -34,6 +34,7 @@ export const Button = memo((props: ButtonProps) => {
 	return (
 		<button
 			{...otherProps}
+			ref={ref}
 			type='button'
 			onClick={onClick}
 			className={classNames(cls.button, mods, [className, cls[variant]])}
@@ -42,3 +43,7 @@ export const Button = memo((props: ButtonProps) => {
 		</button>
 	);
 });
+
+const MemoizedButton = memo(Button);
+
+export { MemoizedButton as Button };
