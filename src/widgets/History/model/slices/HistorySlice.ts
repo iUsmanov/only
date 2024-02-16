@@ -1,10 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { HistorySchema } from '../types/HistorySchema';
-import { degreesMap } from '../../consts/history';
+import { degreesMap, yearsEvents } from '../../consts/history';
 
 export const initialState: HistorySchema = {
 	selectedPoint: 1,
 	wheelDegs: 0,
+	yearsEvents: yearsEvents,
 };
 
 export const HistorySlice = createSlice({
