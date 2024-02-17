@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo, useState } from 'react';
 import cls from './EventsSlider.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,18 +22,16 @@ export const EventsSlider = memo((props: EventsSliderProps) => {
 	const { className } = props;
 	const yearsEvents = useSelector(getYearsEvents);
 	const years = useSelector(getYears);
-	// const [isHidden, setIsHidden] = useState(false);
 	const isEventsSliderHidden = useSelector(getIsEventsSliderHidden);
+	const [yearss, setYearss] = useState(years);
 
-	// const toggleIsHidden = () => {
-	// 	setIsHidden((prev) => !prev);
+	useMemo(() => {
+		setTimeout(() => {
+			setYearss(years);
+		}, 700);
+	}, [years]);
 
-	// 	setTimeout(() => {
-	// 		setIsHidden((prev) => !prev);
-	// 	}, 700);
-	// };
-
-	if (!years) return null;
+	if (!years || !yearss) return null;
 
 	return (
 		<div className={classNames(cls.eventsSlider, { [cls.isHidden]: isEventsSliderHidden }, [])}>
@@ -53,7 +51,7 @@ export const EventsSlider = memo((props: EventsSliderProps) => {
 					onSlideChange={() => console.log('slide change')}
 					onSwiper={(swiper) => console.log(swiper)}
 				>
-					{yearsEvents[`${years[0]}-${years[1]}`].map((yearEvents) => {
+					{yearsEvents[`${yearss[0]}-${yearss[1]}`].map((yearEvents) => {
 						return (
 							<SwiperSlide key={yearEvents.title}>
 								<EventSlide text={yearEvents.text} title={yearEvents.title} />

@@ -10,7 +10,6 @@ interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: ButtonVariant;
 	shadow?: boolean;
 	children: ReactNode;
-	onClick: () => void;
 }
 
 interface CircleButton extends ButtonBaseProps {
@@ -21,7 +20,7 @@ interface CircleButton extends ButtonBaseProps {
 type ButtonProps = CircleButton;
 
 const Button = forwardRef((props: ButtonProps, ref: LegacyRef<HTMLButtonElement> | undefined) => {
-	const { className, children, variant = 'circle', onClick, size, shadow, ...otherProps } = props;
+	const { className, children, variant = 'circle', size, shadow, ...otherProps } = props;
 
 	const mods: Mods = useMemo(
 		() => ({
@@ -36,7 +35,6 @@ const Button = forwardRef((props: ButtonProps, ref: LegacyRef<HTMLButtonElement>
 			{...otherProps}
 			ref={ref}
 			type='button'
-			onClick={onClick}
 			className={classNames(cls.button, mods, [className, cls[variant]])}
 		>
 			{children}

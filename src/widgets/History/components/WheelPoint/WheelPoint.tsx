@@ -1,4 +1,4 @@
-import { MutableRefObject, memo } from 'react';
+import { memo } from 'react';
 import cls from './WheelPoint.module.scss';
 import { Button } from '@/shared/ui/Button/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -11,11 +11,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 interface WheelPointProps {
 	className?: string;
 	number: number;
-	wheelRef?: MutableRefObject<any>;
+	title: string;
 }
 
 export const WheelPoint = memo((props: WheelPointProps) => {
-	const { number, wheelRef } = props;
+	const { number, title } = props;
 	const dispatch = useAppDispatch();
 	const selectedPoint = useSelector(getSelectedPoint);
 	const wheelDegs = useSelector(getWheelDegs);
@@ -41,10 +41,15 @@ export const WheelPoint = memo((props: WheelPointProps) => {
 			])}
 		>
 			<div className={cls.dot}></div>
-			<Button onClick={onClick} variant='circle' size='56' className={cls.button}>
+			<Button
+				onClick={onClick}
+				variant='circle'
+				size='56'
+				className={classNames(cls.button, {}, [])}
+			>
 				{number}
 			</Button>
-			{selectedPoint === number && <div className={cls.title}>Movie</div>}
+			<div className={cls.title}>{title}</div>
 		</div>
 	);
 });

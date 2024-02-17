@@ -30,6 +30,25 @@
 	transition: all .3s ease-in;
 }
 
+.title {
+	position: absolute;
+	font-weight: 700;
+	left: 60px;
+
+	// ====
+	visibility: hidden;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.root._active {
+	.title {
+		visibility: visible;
+		pointer-events: all;
+		opacity: 1;
+		transition: all 3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+}
 
 .root:hover, .root._active {
 	background: var(--main-backgrond-color);
@@ -48,12 +67,6 @@
 		transform: translate(-50%, -50%) scale(1);
 		border: 1px solid var(--circle-border-color);
 	}
-}
-
-.title {
-	position: absolute;
-	font-weight: 700;
-	right: -80px;
 }
 
 .selected-point-1 {
@@ -81,46 +94,103 @@
 }
 
 .selected-point-2 {
-	.this-point-1 {}
-	.this-point-2 {}
-	.this-point-3 {}
-	.this-point-4 {}
-	.this-point-5 {}
-	.this-point-6 {}
+	&.this-point-1 {
+		transform: rotate(10deg);
+	}
+
+	&.this-point-2 {
+		transform: rotate(-40deg);
+	}
+
+	&.this-point-3 {
+		transform: rotate(-90deg);}
+
+	&.this-point-4 {
+		transform: rotate(10deg);}
+
+	&.this-point-5 {
+		transform: rotate(-40deg);}
+
+	&.this-point-6 {
+		transform: rotate(-90deg);}
 }
 
 .selected-point-3 {
-	.this-point-1 {}
-	.this-point-2 {}
-	.this-point-3 {}
-	.this-point-4 {}
-	.this-point-5 {}
-	.this-point-6 {}
+	&.this-point-1 {
+		transform: rotate(60deg);}
+
+	&.this-point-2 {
+		transform: rotate(10deg);}
+
+	&.this-point-3 {
+		transform: rotate(-40deg);}
+
+	&.this-point-4 {
+		transform: rotate(60deg);}
+
+	&.this-point-5 {
+		transform: rotate(10deg);}
+
+	&.this-point-6 {
+		transform: rotate(-40deg);}
 }
 
 .selected-point-4 {
-	.this-point-1 {}
-	.this-point-2 {}
-	.this-point-3 {}
-	.this-point-4 {}
-	.this-point-5 {}
-	.this-point-6 {}
+	&.this-point-1 {
+		transform: rotate(140deg);}
+
+	&.this-point-2 {
+		transform: rotate(90deg);}
+
+	&.this-point-3 {
+		transform: rotate(40deg);}
+
+	&.this-point-4 {
+		transform: rotate(140deg);}
+
+	&.this-point-5 {
+		transform: rotate(90deg);}
+
+	&.this-point-6 {
+		transform: rotate(40deg);}
 }
 
 .selected-point-5 {
-	.this-point-1 {}
-	.this-point-2 {}
-	.this-point-3 {}
-	.this-point-4 {}
-	.this-point-5 {}
-	.this-point-6 {}
+	&.this-point-1 {
+		transform: rotate(-170deg);}
+
+	&.this-point-2 {
+		transform: rotate(140deg);}
+
+	&.this-point-3 {
+		transform: rotate(90deg);}
+
+	&.this-point-4 {
+		transform: rotate(-170deg);}
+
+	&.this-point-5 {
+		transform: rotate(140deg);}
+
+	&.this-point-6 {
+		transform: rotate(90deg);}
 }
 
 .selected-point-6 {
-	.this-point-1 {}
-	.this-point-2 {}
-	.this-point-3 {}
-	.this-point-4 {}
-	.this-point-5 {}
-	.this-point-6 {}
+	&.this-point-1 {
+		transform: rotate(-120deg);}
+
+	&.this-point-2 {
+		transform: rotate(-170deg);}
+
+	&.this-point-3 {
+		transform: rotate(140deg);}
+
+	&.this-point-4 {
+		transform: rotate(-120deg);}
+
+	&.this-point-5 {
+		transform: rotate(-170deg);}
+
+	&.this-point-6 {
+		transform: rotate(140deg);}
 }

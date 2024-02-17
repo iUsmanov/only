@@ -17,16 +17,16 @@ export const Wheel = memo((props: WheelProps) => {
 	return (
 		<div className={cls.wheel} style={{ transform: `translate(-50%, -50%) rotate(${wheelDegs}deg)` }}>
 			<WheelDiameter className={classNames(cls.one, {}, [cls.diameter])}>
-				<WheelPoint className={cls.point} number={1} />
-				<WheelPoint className={cls.point} number={4} />
+				<WheelPoint className={cls.point} number={1} title='Кино' />
+				<WheelPoint className={cls.point} number={4} title='Литература' />
 			</WheelDiameter>
 			<WheelDiameter className={classNames(cls.two, {}, [cls.diameter])}>
-				<WheelPoint className={cls.point} number={2} />
-				<WheelPoint className={cls.point} number={5} />
+				<WheelPoint className={cls.point} number={2} title='Музыка' />
+				<WheelPoint className={cls.point} number={5} title='Наука' />
 			</WheelDiameter>
 			<WheelDiameter className={classNames(cls.three, {}, [cls.diameter])}>
-				<WheelPoint className={cls.point} number={3} />
-				<WheelPoint className={cls.point} number={6} />
+				<WheelPoint className={cls.point} number={3} title='Путешествия' />
+				<WheelPoint className={cls.point} number={6} title='Работа' />
 			</WheelDiameter>
 		</div>
 	);
