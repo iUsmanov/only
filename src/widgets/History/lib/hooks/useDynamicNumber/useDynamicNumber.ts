@@ -33,7 +33,7 @@ export const useDynamicNumber = (props: UseDynamicNumberProps) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [endNumber]);
 
-	// Начинаем увеличивать число
+	// Начинаем увеличивать или уменьшать число
 	useEffect(() => {
 		if (wasOpened) {
 			// console.log('CHANGE');
@@ -47,6 +47,12 @@ export const useDynamicNumber = (props: UseDynamicNumberProps) => {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [endNumber, currentNumber]);
+
+	// if (currentNumber && endNumber && startNumber.current) {
+	// 	console.log(currentNumber);
+	// 	// console.log(startNumber.current);
+	// 	// console.log(endNumber);
+	// }
 
 	return currentNumber;
 };

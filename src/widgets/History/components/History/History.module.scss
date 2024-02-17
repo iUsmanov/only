@@ -6,11 +6,11 @@
 }
 
 .history {
+	position: relative;
 	grid-column: 2;
 	display: grid;
 	grid-template-rows: 1fr 2fr 1fr;
 	grid-template-columns: 1fr;
-	padding-left: 78px;
 	border: 1px solid var(--circle-border-color);
 }
 
