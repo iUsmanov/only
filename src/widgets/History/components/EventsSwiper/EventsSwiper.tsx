@@ -7,9 +7,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { EventSlide } from '../EventSlide/EventSlide';
-import { useSelector } from 'react-redux';
-import { getYearsEvents } from '../../model/selectors/getYearsEvents';
 import { getDevice } from '@/shared/lib/helpers/getDevice/getDevice';
+import { useHistoryContext } from '../../lib/context/HistoryContext';
 
 const { viewportWidth } = getDevice();
 
@@ -23,7 +22,11 @@ interface EventsSwiperProps {
 export const EventsSwiper = memo((props: EventsSwiperProps) => {
 	const { className, nextElClassName, paginationElClassName, prevElClassName, yearsAfterTimeout } =
 		props;
-	const yearsEvents = useSelector(getYearsEvents);
+	const {
+		historyData: { yearsEvents },
+	} = useHistoryContext();
+
+	if (!yearsEvents) return null;
 
 	return (
 		<div

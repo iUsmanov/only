@@ -3,9 +3,7 @@ import cls from './Wheel.module.scss';
 import { WheelPoint } from '../WheelPoint/WheelPoint';
 import { WheelDiameter } from '../WheelDiameter/WheelDiameter';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useSelector } from 'react-redux';
-import { getWheelDegs } from '../../model/selectors/getWheelDegs';
-import { getPointsTitles } from '../../model/selectors/getPointsTitles';
+import { useHistoryContext } from '../../lib/context/HistoryContext';
 
 interface WheelProps {
 	className?: string;
@@ -13,22 +11,27 @@ interface WheelProps {
 
 export const Wheel = memo((props: WheelProps) => {
 	const { className } = props;
-	const wheelDegs = useSelector(getWheelDegs);
-	const pointsTitles = useSelector(getPointsTitles);
+	const { historyData } = useHistoryContext();
+	console.log(historyData.selectedPoint);
+
+	if (!historyData.pointsTitles) return null;
 
 	return (
-		<div className={cls.wheel} style={{ transform: `translate(-50%, -50%) rotate(${wheelDegs}deg)` }}>
+		<div
+			className={cls.wheel}
+			style={{ transform: `translate(-50%, -50%) rotate(${historyData.wheelDegs}deg)` }}
+		>
 			<WheelDiameter className={classNames(cls.one, {}, [cls.diameter])}>
-				<WheelPoint className={cls.point} number={1} title={pointsTitles[1]} />
-				<WheelPoint className={cls.point} number={4} title={pointsTitles[4]} />
+				<WheelPoint className={cls.point} number={1} title={historyData.pointsTitles[1]} />
+				<WheelPoint className={cls.point} number={4} title={historyData.pointsTitles[4]} />
 			</WheelDiameter>
 			<WheelDiameter className={classNames(cls.two, {}, [cls.diameter])}>
-				<WheelPoint className={cls.point} number={2} title={pointsTitles[2]} />
-				<WheelPoint className={cls.point} number={5} title={pointsTitles[5]} />
+				<WheelPoint className={cls.point} number={2} title={historyData.pointsTitles[2]} />
+				<WheelPoint className={cls.point} number={5} title={historyData.pointsTitles[5]} />
 			</WheelDiameter>
 			<WheelDiameter className={classNames(cls.three, {}, [cls.diameter])}>
-				<WheelPoint className={cls.point} number={3} title={pointsTitles[3]} />
-				<WheelPoint className={cls.point} number={6} title={pointsTitles[6]} />
+				<WheelPoint className={cls.point} number={3} title={historyData.pointsTitles[3]} />
+				<WheelPoint className={cls.point} number={6} title={historyData.pointsTitles[6]} />
 			</WheelDiameter>
 		</div>
 	);

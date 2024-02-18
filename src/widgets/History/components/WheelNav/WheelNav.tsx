@@ -1,13 +1,10 @@
 import { memo } from 'react';
 import cls from './WheelNav.module.scss';
 import { Button } from '@/shared/ui/Button/Button';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
-import { getSelectedPoint } from '../../model/selectors/getSelectedPoint';
-import { HistoryActions } from '../../model/slices/HistorySlice';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Arrow } from '@/shared/ui/Arrow/Arrow';
 import { getDevice } from '@/shared/lib/helpers/getDevice/getDevice';
+import { useHistoryContext } from '../../lib/context/HistoryContext';
 
 const { viewportWidth } = getDevice();
 
@@ -17,31 +14,40 @@ interface WheelNavProps {
 
 export const WheelNav = memo((props: WheelNavProps) => {
 	const { className } = props;
-	const dispatch = useAppDispatch();
-
-	const selectedPoint = useSelector(getSelectedPoint);
+	const { historyData, setHistoryData } = useHistoryContext();
 
 	const toggleIsHidden = () => {
-		dispatch(HistoryActions.setIsEventsSliderHidden(true));
+		setHistoryData({ ...historyData, isEventsSliderHidden: true });
 		setTimeout(() => {
-			dispatch(HistoryActions.setIsEventsSliderHidden(false));
+			setHistoryData({ ...historyData, isEventsSliderHidden: false });
 		}, 700);
 	};
 
 	const onClickNext = () => {
-		dispatch(HistoryActions.selectPoint(selectedPoint + 1));
+		if (!historyData.selectedPoint) return;
+		console.log('clcic');
+
+		setHistoryData((prev) => {
+			if (prev.selectedPoint) {
+				console.log('trye');
+				return { ...prev, selectedPoint: prev.selectedPoint + 1 };
+			} else {
+				return prev;
+			}
+		});
 		toggleIsHidden();
 	};
 
 	const onClickLast = () => {
-		dispatch(HistoryActions.selectPoint(selectedPoint - 1));
+		if (!historyData.selectedPoint) return;
+		setHistoryData({ ...historyData, selectedPoint: historyData.selectedPoint - 1 });
 		toggleIsHidden();
 	};
 
 	return (
 		<div className={classNames(cls.navigation, {}, [className])}>
 			<div className={cls.count}>
-				0{selectedPoint}/{'06'}
+				0{historyData.selectedPoint}/{'06'}
 			</div>
 			<div className={cls.buttons}>
 				<Button
@@ -49,7 +55,7 @@ export const WheelNav = memo((props: WheelNavProps) => {
 					onClick={onClickLast}
 					variant='circle'
 					size={viewportWidth > 320 ? '50' : '25'}
-					disabled={selectedPoint === 1}
+					disabled={historyData.selectedPoint === 1}
 				>
 					<Arrow course='left' size={viewportWidth > 320 ? 'l' : 'm'} />
 				</Button>
@@ -58,7 +64,7 @@ export const WheelNav = memo((props: WheelNavProps) => {
 					onClick={onClickNext}
 					variant='circle'
 					size={viewportWidth > 320 ? '50' : '25'}
-					disabled={selectedPoint === 6}
+					disabled={historyData.selectedPoint === 6}
 				>
 					<Arrow course='right' size={viewportWidth > 320 ? 'l' : 'm'} />
 				</Button>

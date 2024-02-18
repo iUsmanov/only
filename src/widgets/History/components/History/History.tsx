@@ -6,10 +6,26 @@ import { PeroidSlider } from '../PeroidSlider/PeroidSlider';
 import { Cross } from '../Cross/Cross';
 import { getDevice } from '@/shared/lib/helpers/getDevice/getDevice';
 import { BottomNav } from '../BottomNav/BottomNav';
+import { HistoryProvider } from '../../lib/context/HistoryContext';
 
 const { viewportWidth } = getDevice();
 
 export const History = memo(() => {
+	return (
+		<HistoryProvider>
+			<HistoryComponent />
+		</HistoryProvider>
+	);
+});
+
+const HistoryComponent = memo(() => {
+	// const { isEventsSliderHidden, pointsTitles, selectedPoint, wheelDegs, years, yearsEvents } =
+	// 	useHistoryContext();
+
+	// if (!pointsTitles || !selectedPoint || !years() || !yearsEvents) {
+	// 	return null;
+	// }
+
 	return (
 		<main className={cls.container}>
 			<section className={cls.history}>

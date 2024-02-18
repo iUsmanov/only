@@ -6,13 +6,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Button } from '@/shared/ui/Button/Button';
 import { Arrow } from '@/shared/ui/Arrow/Arrow';
-import { useSelector } from 'react-redux';
-import { getYears } from '../../model/selectors/getYears';
-import { getIsEventsSliderHidden } from '../../model/selectors/getIsEventsSliderHidden';
 import { getDevice } from '@/shared/lib/helpers/getDevice/getDevice';
 import { EventsSwiper } from '../EventsSwiper/EventsSwiper';
-import { getSelectedPoint } from '../../model/selectors/getSelectedPoint';
-import { getPointsTitles } from '../../model/selectors/getPointsTitles';
+import { useHistoryContext } from '../../lib/context/HistoryContext';
 
 const { viewportWidth } = getDevice();
 
@@ -24,28 +20,27 @@ interface EventsSliderProps {
 }
 export const EventsSlider = memo((props: EventsSliderProps) => {
 	const { className, nextElClassName, paginationElClassName, prevElClassName } = props;
-	const years = useSelector(getYears);
-	const isEventsSliderHidden = useSelector(getIsEventsSliderHidden);
-	const pointsTitles = useSelector(getPointsTitles);
-	const selectedPoint = useSelector(getSelectedPoint);
-	const [yearsAfterTimeout, setYearsAfterTimeout] = useState(years);
+	const {
+		historyData: { isEventsSliderHidden, pointsTitles, selectedPoint, years },
+	} = useHistoryContext();
+	const [yearsAfterTimeout, setYearsAfterTimeout] = useState(years?.(selectedPoint ?? 1));
 	const [selectedPointAfterTimeout, setSelectedPointAfterTimeout] = useState(selectedPoint);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setSelectedPointAfterTimeout(selectedPoint);
-			setYearsAfterTimeout(years);
+			setYearsAfterTimeout(years?.(selectedPoint ?? 1));
 		}, 700);
 	}, [selectedPoint, years]);
 
-	if (!years || !yearsAfterTimeout) return null;
+	if (!selectedPoint || !years || !yearsAfterTimeout || !selectedPointAfterTimeout) return null;
 
 	return (
 		<div
 			className={classNames(cls.eventsSlider, { [cls.isHidden]: isEventsSliderHidden }, [className])}
 		>
 			{viewportWidth <= 320 && (
-				<div className={cls.pointTitle}>{pointsTitles[selectedPointAfterTimeout]}</div>
+				<div className={cls.pointTitle}>{pointsTitles?.[selectedPointAfterTimeout]}</div>
 			)}
 			{viewportWidth <= 320 && <div className={cls.horizontalLine}></div>}
 			<div className={cls.sliderWithNav}>

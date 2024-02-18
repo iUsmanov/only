@@ -2,21 +2,26 @@ import { memo } from 'react';
 import cls from './PeroidSlider.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Wheel } from '../Wheel/Wheel';
-import { useSelector } from 'react-redux';
-import { getYears } from '../../model/selectors/getYears';
 import { WheelNav } from '../WheelNav/WheelNav';
 import { useDynamicNumber } from '../../lib/hooks/useDynamicNumber/useDynamicNumber';
 import { getDevice } from '@/shared/lib/helpers/getDevice/getDevice';
+import { useHistoryContext } from '../../lib/context/HistoryContext';
 
 const { viewportWidth } = getDevice();
 
 export const PeroidSlider = memo((props: { className?: string }) => {
 	const { className } = props;
-	const years = useSelector(getYears);
-	const firstYear = useDynamicNumber({ time: 30, endNumber: years?.[0] });
-	const secondYear = useDynamicNumber({ time: 30, endNumber: years?.[1] });
+	const { historyData } = useHistoryContext();
+	const firstYear = useDynamicNumber({
+		time: 30,
+		endNumber: historyData.years?.(historyData.selectedPoint ?? 1)?.[0],
+	});
+	const secondYear = useDynamicNumber({
+		time: 30,
+		endNumber: historyData.years?.(historyData.selectedPoint ?? 1)?.[1],
+	});
 
-	if (!years) return null;
+	if (!historyData.years) return null;
 
 	return (
 		<div className={classNames(cls.periodSlider, {}, [className])}>

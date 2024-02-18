@@ -1,11 +1,8 @@
 import { memo } from 'react';
 import cls from './WheelPoint.module.scss';
 import { Button } from '@/shared/ui/Button/Button';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { HistoryActions } from '../../model/slices/HistorySlice';
-import { useSelector } from 'react-redux';
-import { getSelectedPoint } from '../../model/selectors/getSelectedPoint';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useHistoryContext } from '../../lib/context/HistoryContext';
 
 interface WheelPointProps {
 	className?: string;
@@ -15,16 +12,15 @@ interface WheelPointProps {
 
 export const WheelPoint = memo((props: WheelPointProps) => {
 	const { number, title } = props;
-	const dispatch = useAppDispatch();
-	const selectedPoint = useSelector(getSelectedPoint);
+	const { historyData, setHistoryData } = useHistoryContext();
 
 	const onClick = () => {
-		dispatch(HistoryActions.selectPoint(number));
+		setHistoryData((prev) => ({ ...prev, selectedPoint: number }));
 
 		const toggleIsHidden = () => {
-			dispatch(HistoryActions.setIsEventsSliderHidden(true));
+			setHistoryData({ ...historyData, isEventsSliderHidden: true });
 			setTimeout(() => {
-				dispatch(HistoryActions.setIsEventsSliderHidden(false));
+				setHistoryData({ ...historyData, isEventsSliderHidden: false });
 			}, 700);
 		};
 
@@ -33,8 +29,8 @@ export const WheelPoint = memo((props: WheelPointProps) => {
 
 	return (
 		<div
-			className={classNames(cls.root, { [cls['_active']]: selectedPoint === number }, [
-				cls[`selected-point-${selectedPoint}`],
+			className={classNames(cls.root, { [cls['_active']]: historyData.selectedPoint === number }, [
+				cls[`selected-point-${historyData.selectedPoint}`],
 				cls[`this-point-${number}`],
 			])}
 		>
