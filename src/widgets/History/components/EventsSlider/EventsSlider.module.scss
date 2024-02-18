@@ -14,5 +14,18 @@
 }
 
 .swiper {
-	// margin-right: 78px;
+	// padding-bottom: 50px;
+
+}
+
+.paginationWrapper {
+	// display: flex;
+	// justify-content: center;
+	// align-items: center;
+}
+
+.noActiveSlide {
+	@media (width <= 320px) {
+		opacity: 0.5;
+	}
 }

@@ -1,0 +1,29 @@
+.bottomNav {
+	margin: 20px;
+}
+
+.yearsNavAndPagination {
+	width: 280px;
+	display: grid;
+	grid-template-columns: 2fr 6fr 2fr;
+	grid-template-rows: 1fr;
+}
+
+.wheelNav {
+}
+
+.pagination {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	span {
+		width: 7px;
+		height: 7px;
+		background: var(--main-color);
+		margin: 0 5px;
+	}
+
+	// background-color: red;
+}

@@ -3,7 +3,7 @@ import cls from './Button.module.scss';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
 type ButtonVariant = 'circle';
-type CircleButtonSize = '40' | '50' | '56';
+type CircleButtonSize = '40' | '50' | '56' | '25';
 
 interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;

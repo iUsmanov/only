@@ -8,9 +8,20 @@
 	height: 100%;
 	background: var(--header-gradient);
 	margin-right: 78px;
+
+	@media (width <= 320px) {
+		display: none;
+	}
 }
 
 .text {
-	font: var(--font-xl);
+	font: var(--font-header);
 	font-weight: 700;
+
+	@media (width <= 320px) {
+		font: var(--font-header-mobile);
+		font-weight: 700;
+		padding-top: 59px;
+		padding-left: 20px;
+	}
 }

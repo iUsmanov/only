@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 interface ArrowProps {
 	className?: string;
 	course: 'left' | 'right';
-	size: 's' | 'l';
+	size: 's' | 'l' | 'm';
 }
 
 export const Arrow = memo((props: ArrowProps) => {

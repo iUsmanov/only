@@ -6,6 +6,9 @@ import { useSelector } from 'react-redux';
 import { getYears } from '../../model/selectors/getYears';
 import { WheelNav } from '../WheelNav/WheelNav';
 import { useDynamicNumber } from '../../lib/hooks/useDynamicNumber/useDynamicNumber';
+import { getDevice } from '@/shared/lib/helpers/getDevice/getDevice';
+
+const { viewportWidth } = getDevice();
 
 export const PeroidSlider = memo((props: { className?: string }) => {
 	const { className } = props;
@@ -20,9 +23,10 @@ export const PeroidSlider = memo((props: { className?: string }) => {
 			<div className={cls.years}>
 				<div className={cls.firstYear}>{firstYear}</div>
 				<div className={cls.secondYear}>{secondYear}</div>
-				<Wheel />
+				{viewportWidth > 320 && <Wheel />}
 			</div>
-			<WheelNav className={cls.navigation} />
+			{viewportWidth <= 320 && <div className={cls.horizontalLine}></div>}
+			{viewportWidth > 320 && <WheelNav className={cls.navigation} />}
 		</div>
 	);
 });

@@ -1,13 +1,28 @@
 .eventSlide {
 	width: 320px;
+
+	@media (width <= 320px) {
+		width: 190px;
+	}
 }
 
 .title{
 	color: var(--slide-header-color);
 	font: var(--font-slide-header);
+
+	@media (width <= 320px) {
+		font: var(--font-size-slide-header-mobile);
+		font-family: 'Bebas Neue';
+	}
 }
 
 .text{
 	color: var(--main-color);
 	font: var(--font-wheel-point);
+	max-width: 100%;
+
+	@media (width <= 320px) {
+		font: var(--font-size-slide-text-mobile);
+		font-family: 'PT Sans';
+	}
 }

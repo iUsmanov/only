@@ -4,10 +4,12 @@
 	--slide-header-color: #3877EE;
 	--first-year-color: #5D5FEF;
 	--second-year-color: #EF5DA8;
+	--second-year-color-mobile: #F178B6;
 	--circle-border-color: rgb(48 62 88 / 50%);
 	--header-gradient: linear-gradient(180deg, #3877EE -5%, #EF5DA8 85%);
 	--period-button-border: rgb(66 86 122 / 50%);
 	--slider-active-button-shadow: 0px 0px 15px 0px #3877EE1A;
+	--vertical-line-mobile: #C7CDD9;
 
 	// --slider-active-arrow: (var(--slide-header-color) / 50%);
 
@@ -15,9 +17,9 @@
 	--second-font: 'Bebas Neue';
 
 	// FONTS
-	--font-size-xl: 56px;
-	--font-line-xl: 67.2px;
-	--font-xl: var(--font-size-xl) / var(--font-line-xl) var(--main-font);
+	--font-size-header: 56px;
+	--font-line-header: 67.2px;
+	--font-header: var(--font-size-header) / var(--font-line-header) var(--main-font);
 
 	// Шрифт годов периода
 	--font-size-period-year: 200px;
@@ -33,4 +35,19 @@
 	--font-size-slide-header: 25px;
 	--font-line-slide-header: 30px;
 	--font-slide-header: var(--font-size-slide-header) / var(--font-line-slide-header) var(--second-font);
+
+	// Шрифт заголовка события
+	--font-size-slide-header-mobile: 16px;
+	--font-line-slide-header-mobile: 19.2px;
+	--font-slide-header-mobile: var(--font-size-slide-header-mobile) / var(--font-line-slide-header-mobile) var(--second-font);
+
+	// ==== 
+	--font-size-header-mobile: 20px;
+	--font-line-header-mobile: 24px;
+	--font-header-mobile: var(--font-size-header-mobile) / var(--font-line-header-mobile) var(--main-font);
+
+	// ==== 
+	--font-size-slide-text-mobile: 14px;
+	--font-line-slide-text-mobile: 20.3px;
+	--font-slide-text-mobile: var(--font-size-slide-text-mobile) / var(--font-line-slide-text-mobile) var(--main-font);
 }

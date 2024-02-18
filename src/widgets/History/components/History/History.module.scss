@@ -1,8 +1,11 @@
 .container {
 	display: grid;
-	grid-template-columns: 1fr 1440px 1fr;
 	grid-template-rows: 1fr;
 	height: 100vh;
+
+	@media (width > 320px) {
+		grid-template-columns: 1fr 1440px 1fr;
+	}
 }
 
 .history {
@@ -11,7 +14,14 @@
 	display: grid;
 	grid-template-rows: 1fr 2fr 1fr;
 	grid-template-columns: 1fr;
-	border: 1px solid var(--circle-border-color);
+
+	@media (width > 320px) {
+		border: 1px solid var(--circle-border-color);
+	}
+
+	@media (width <= 320px) {
+		grid-template-rows: 1fr 1.3fr 1fr 0.7fr;
+	}
 }
 
 .header {
@@ -19,7 +29,13 @@
 }
 
 .peroidSlider {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@media (width > 320px) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.bottomNav {
+	align-self: flex-end;
 }

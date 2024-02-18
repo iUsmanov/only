@@ -7,6 +7,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	@media (width <= 320px) {
+		padding: 0 20px;
+		height: 100%;
+		justify-content: space-between;
+	}
 }
 
 .firstYear,
@@ -14,15 +20,35 @@
 	font: var(--font-period-year);
 	font-weight: 700;
 	letter-spacing: -0.02em;
+
+	@media (width <= 320px) {
+		font: var(--font-header);
+		font-weight: 700;
+	}
 }
 
 .firstYear {
 	color: var(--first-year-color);
 	margin-right: 150px;
+
+	@media (width <= 320px) {
+		margin-right: 0;
+	}
 }
 
 .secondYear {
 	color: var(--second-year-color);
+
+	@media (width <= 320px) {
+		color: var(--second-year-color-mobile);
+	}
+}
+
+.horizontalLine {
+	width: 90%;
+	background-color: var(--vertical-line-mobile);
+	height: 1px;
+	margin: 0 auto;
 }
 
 .navigation {
