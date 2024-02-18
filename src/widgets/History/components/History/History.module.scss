@@ -20,7 +20,7 @@
 	}
 
 	@media (width <= 320px) {
-		grid-template-rows: 1fr 1.3fr 1fr 0.7fr;
+		grid-template-rows: 0.25fr 0.40fr 0.5fr 0.30fr;
 	}
 }
 
@@ -52,6 +52,20 @@
 		background: var(--main-color);
 		margin: 0 5px;
 	}
+}
 
-	// background-color: red;
+.nextEl{
+	@media (width< 1px) {
+		display: block;
+	}
+
+	// Класс-пустышка. Нужен для определения элемента навигации слайдера
+}
+
+.prevEl{
+	@media (width< 1px) {
+		display: block;
+	}
+
+	// Класс-пустышка. Нужен для определения элемента навигации слайдера
 }

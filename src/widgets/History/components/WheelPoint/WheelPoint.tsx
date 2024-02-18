@@ -5,7 +5,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { HistoryActions } from '../../model/slices/HistorySlice';
 import { useSelector } from 'react-redux';
 import { getSelectedPoint } from '../../model/selectors/getSelectedPoint';
-import { getWheelDegs } from '../../model/selectors/getWheelDegs';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface WheelPointProps {
@@ -18,7 +17,6 @@ export const WheelPoint = memo((props: WheelPointProps) => {
 	const { number, title } = props;
 	const dispatch = useAppDispatch();
 	const selectedPoint = useSelector(getSelectedPoint);
-	const wheelDegs = useSelector(getWheelDegs);
 
 	const onClick = () => {
 		dispatch(HistoryActions.selectPoint(number));

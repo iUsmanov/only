@@ -9,10 +9,8 @@ export const Cross = memo((props: CrossProps) => {
 	const { className } = props;
 	return (
 		<>
-			{/* <div className={classNames(cls.cross, {}, [className])}> */}
 			<div className={cls.verticalLine}></div>
 			<div className={cls.horizontalLine}></div>
-			{/* </div> */}
 		</>
 	);
 });

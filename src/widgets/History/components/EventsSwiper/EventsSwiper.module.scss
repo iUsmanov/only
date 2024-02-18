@@ -1,0 +1,5 @@
+.noActiveSlide {
+	@media (width <= 320px) {
+		opacity: 0.5;
+	}
+}

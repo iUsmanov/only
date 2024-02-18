@@ -31,6 +31,11 @@
 	--font-line-wheel-point: 30px;
 	--font-wheel-point: var(--font-size-wheel-point) / var(--font-line-wheel-point) var(--main-font);
 
+	// Шрифт периода
+	--font-size-wheel-point-mobile: 16px;
+	--font-line-wheel-point-mobile: 20px;
+	--font-wheel-point-mobile: var(--font-size-wheel-point-mobile) / var(--font-line-wheel-point-mobile) var(--main-font);
+
 	// Шрифт заголовка события
 	--font-size-slide-header: 25px;
 	--font-line-slide-header: 30px;

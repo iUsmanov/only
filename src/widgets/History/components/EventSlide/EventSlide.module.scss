@@ -12,6 +12,7 @@
 
 	@media (width <= 320px) {
 		font: var(--font-size-slide-header-mobile);
+		/* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
 		font-family: 'Bebas Neue';
 	}
 }
@@ -23,6 +24,7 @@
 
 	@media (width <= 320px) {
 		font: var(--font-size-slide-text-mobile);
+		/* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
 		font-family: 'PT Sans';
 	}
 }

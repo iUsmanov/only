@@ -25,7 +25,6 @@ export const PeroidSlider = memo((props: { className?: string }) => {
 				<div className={cls.secondYear}>{secondYear}</div>
 				{viewportWidth > 320 && <Wheel />}
 			</div>
-			{viewportWidth <= 320 && <div className={cls.horizontalLine}></div>}
 			{viewportWidth > 320 && <WheelNav className={cls.navigation} />}
 		</div>
 	);
