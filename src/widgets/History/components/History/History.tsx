@@ -16,8 +16,14 @@ export const History = memo(() => {
 				{viewportWidth > 320 && <Cross />}
 				<Header className={cls.header} />
 				<PeroidSlider className={cls.peroidSlider} />
-				<EventsSlider />
-				{viewportWidth <= 320 && <BottomNav className={cls.bottomNav} />}
+				<EventsSlider
+					nextElClassName={cls.nextEl}
+					paginationElClassName={cls.paginationEl}
+					prevElClassName={cls.prevEl}
+				/>
+				{viewportWidth <= 320 && (
+					<BottomNav paginationElClassName={cls.paginationEl} className={cls.bottomNav} />
+				)}
 			</section>
 		</main>
 	);

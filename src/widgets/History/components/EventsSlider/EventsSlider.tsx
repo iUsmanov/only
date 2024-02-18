@@ -19,9 +19,12 @@ const { viewportWidth } = getDevice();
 
 interface EventsSliderProps {
 	className?: string;
+	paginationElClassName: string;
+	prevElClassName: string;
+	nextElClassName: string;
 }
 export const EventsSlider = memo((props: EventsSliderProps) => {
-	const { className } = props;
+	const { className, nextElClassName, paginationElClassName, prevElClassName } = props;
 	const yearsEvents = useSelector(getYearsEvents);
 	const years = useSelector(getYears);
 	const isEventsSliderHidden = useSelector(getIsEventsSliderHidden);
@@ -38,7 +41,7 @@ export const EventsSlider = memo((props: EventsSliderProps) => {
 	return (
 		<div className={classNames(cls.eventsSlider, { [cls.isHidden]: isEventsSliderHidden }, [])}>
 			{viewportWidth > 320 && (
-				<Button data-swiper-prev size='40' shadow variant='circle' onClick={() => {}}>
+				<Button className={prevElClassName} size='40' shadow variant='circle' onClick={() => {}}>
 					<Arrow course='left' size='s' />
 				</Button>
 			)}
@@ -51,14 +54,14 @@ export const EventsSlider = memo((props: EventsSliderProps) => {
 					modules={[Pagination, ...(viewportWidth > 320 ? [Navigation] : [])]}
 					navigation={
 						viewportWidth > 320 && {
-							nextEl: '[data-swiper-next]',
-							prevEl: '[data-swiper-prev]',
+							nextEl: `.${nextElClassName}`,
+							prevEl: `.${prevElClassName}`,
 						}
 					}
 					pagination={
 						viewportWidth <= 320 && {
 							clickable: true,
-							el: '[data-swiper-pagination]',
+							el: `.${paginationElClassName}`,
 						}
 					}
 					spaceBetween={viewportWidth > 320 ? 80 : 30}
@@ -82,7 +85,7 @@ export const EventsSlider = memo((props: EventsSliderProps) => {
 				</Swiper>
 			</div>
 			{viewportWidth > 320 && (
-				<Button data-swiper-next size='40' shadow variant='circle' onClick={() => {}}>
+				<Button className={nextElClassName} size='40' shadow variant='circle' onClick={() => {}}>
 					<Arrow course='right' size='s' />
 				</Button>
 			)}
