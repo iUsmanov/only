@@ -1,0 +1,44 @@
+:root {
+	--main-font: 'PT Sans';
+	--second-font: 'Bebas Neue';
+
+	// ======
+	--font-size-header: 56px;
+	--font-line-header: 67.2px;
+	--font-header: var(--font-size-header) / var(--font-line-header) var(--main-font);
+
+	// Шрифт годов периода
+	--font-size-period-year: 200px;
+	--font-line-period-year: 160px;
+	--font-period-year: var(--font-size-period-year) / var(--font-line-period-year) var(--main-font);
+
+	// Шрифт периода
+	--font-size-wheel-point: 20px;
+	--font-line-wheel-point: 30px;
+	--font-wheel-point: var(--font-size-wheel-point) / var(--font-line-wheel-point) var(--main-font);
+
+	// Шрифт периода
+	--font-size-wheel-point-mobile: 16px;
+	--font-line-wheel-point-mobile: 20px;
+	--font-wheel-point-mobile: var(--font-size-wheel-point-mobile) / var(--font-line-wheel-point-mobile) var(--main-font);
+
+	// Шрифт заголовка события
+	--font-size-slide-header: 25px;
+	--font-line-slide-header: 30px;
+	--font-slide-header: var(--font-size-slide-header) / var(--font-line-slide-header) var(--second-font);
+
+	// Шрифт заголовка события
+	--font-size-slide-header-mobile: 16px;
+	--font-line-slide-header-mobile: 19.2px;
+	--font-slide-header-mobile: var(--font-size-slide-header-mobile) / var(--font-line-slide-header-mobile) var(--second-font);
+
+	// ==== 
+	--font-size-header-mobile: 20px;
+	--font-line-header-mobile: 24px;
+	--font-header-mobile: var(--font-size-header-mobile) / var(--font-line-header-mobile) var(--main-font);
+
+	// ==== 
+	--font-size-slide-text-mobile: 14px;
+	--font-line-slide-text-mobile: 20.3px;
+	--font-slide-text-mobile: var(--font-size-slide-text-mobile) / var(--font-line-slide-text-mobile) var(--main-font);
+}
