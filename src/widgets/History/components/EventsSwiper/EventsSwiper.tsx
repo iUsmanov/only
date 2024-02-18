@@ -47,8 +47,6 @@ export const EventsSwiper = memo((props: EventsSwiperProps) => {
 				}
 				spaceBetween={viewportWidth > 320 ? 80 : 30}
 				slidesPerView={viewportWidth > 320 ? 3 : 1.5}
-				onSlideChange={() => console.log('slide change')}
-				onSwiper={(swiper) => console.log(swiper)}
 			>
 				{yearsEvents[`${yearsAfterTimeout[0]}-${yearsAfterTimeout[1]}`].map((yearEvents) => {
 					return (
