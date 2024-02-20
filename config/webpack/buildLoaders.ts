@@ -23,6 +23,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	const tsxCodeBabelLoader = buildBabelLoader(options.isDev, true);
 
 	const scssLoader = buildScssLoader(options.isDev);
+	const scssLoaderForSwiper = buildScssLoaderForSwiper(options.isDev);
 
 	return [
 		assetsLoader,
@@ -30,6 +31,6 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 		codeBabelLoader,
 		tsxCodeBabelLoader,
 		scssLoader,
-		buildScssLoaderForSwiper(options.isDev),
+		scssLoaderForSwiper,
 	];
 }
