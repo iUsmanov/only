@@ -22,3 +22,13 @@ export function buildScssLoader(isDev: boolean): webpack.RuleSetRule {
 
 	return scssLoader;
 }
+
+export function buildScssLoaderForSwiper(isDev: boolean): webpack.RuleSetRule {
+	const scssLoader = {
+		test: /\.css$/i,
+		include: /node_modules\\swiper/,
+		use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+	};
+
+	return scssLoader;
+}
